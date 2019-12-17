@@ -1,4 +1,4 @@
-#' rplot
+#' mxplot
 #'
 #' Plot multiple xts objects by row.
 #' Auto align the range of xlim of all plots.
@@ -16,7 +16,7 @@
 #' @return an egg object.
 #' @export
 #'
-rplot = function(...,
+mxplot = function(...,
                   use_one_x_axis = TRUE,
                   theme = theme_bw(),
                   titles = NULL,
@@ -26,15 +26,15 @@ rplot = function(...,
                   vlines = NULL,
                   vlines_color = "gray50") {
 
-  UseMethod("rplot")
+  UseMethod("mxplot")
 
 }
 
 
-#' rplot.gg
+#' mxplot.gg
 #' @export
-#' @rdname rplot
-rplot.gg = function(...,
+#' @rdname mxplot
+mxplot.gg = function(...,
                      use_one_x_axis = TRUE,
                      theme = theme_bw(),
                      titles = NULL,
@@ -47,7 +47,7 @@ rplot.gg = function(...,
   plots = list(...)
   assertList(plots,types = "gg")
 
-  rplotList(plots,
+  mxplotList(plots,
              use_one_x_axis = use_one_x_axis,
              theme = theme,
              titles = titles,
@@ -60,10 +60,10 @@ rplot.gg = function(...,
 
 
 
-#' rplot.xts
+#' mxplot.xts
 #' @export
-#' @rdname rplot
-rplot.xts = function(...,
+#' @rdname mxplot
+mxplot.xts = function(...,
                       use_one_x_axis = T,
                       theme = theme_bw(),
                       titles = NULL,
@@ -79,7 +79,7 @@ rplot.xts = function(...,
 
   plots = map(data, ~ggxts(.,size = size))
 
-  rplotList(plots,
+  mxplotList(plots,
              use_one_x_axis = use_one_x_axis,
              theme = theme,
              titles = titles,
@@ -92,10 +92,10 @@ rplot.xts = function(...,
 
 
 
-#' rplot.list
+#' mxplot.list
 #' @export
-#' @rdname rplot
-rplot.list = function(...,
+#' @rdname mxplot
+mxplot.list = function(...,
                       use_one_x_axis = T,
                       theme = theme_bw(),
                       titles = NULL,
@@ -109,7 +109,7 @@ rplot.list = function(...,
 
   assertList(plots,types = "gg")
 
-  rplotList(plots,
+  mxplotList(plots,
              use_one_x_axis = use_one_x_axis,
              theme = theme,
              titles = titles,
@@ -121,13 +121,13 @@ rplot.list = function(...,
 
 
 
-#' rplotList
+#' mxplotList
 #' @import egg
 #' @import purrr
 #' @import ggplot2
 #' @import checkmate
 #' @importFrom lubridate origin
-rplotList = function(plots,
+mxplotList = function(plots,
                       use_one_x_axis = T,
                       theme = theme_bw(),
                       titles = NULL,

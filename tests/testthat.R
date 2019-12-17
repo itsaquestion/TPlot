@@ -1,4 +1,3 @@
 library(testthat)
-library(MxPlot)
 
-test_check("MxPlot")
+test_check("TPlot")

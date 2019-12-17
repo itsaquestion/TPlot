@@ -14,3 +14,14 @@ LazyData: true
 Suggests: 
     testthat
 RoxygenNote: 6.1.1
+Imports: checkmate,
+  directlabels,
+  dplyr,
+  egg,
+  ggplot2,
+  lubridate,
+  purrr,
+  reshape2,
+  tibble,
+  xts,
+  zoo

@@ -1,4 +1,4 @@
-context("test-rplot_list")
+context("test-mxplot_list")
 
 
 test_that("multiplication works", {
@@ -18,28 +18,28 @@ test_that("multiplication works", {
   z = x
   names(z) = c("1a","2b")
   
-  rplot(x, y,heights = c(2,1),size = 2)
+  mxplot(x, y,heights = c(2,1),size = 2)
 
-  rplot(z)
+  mxplot(z)
 
   p1 = ggxts(x)
   p2 = ggxts(y$a)
 
-  rplot(p1,p2,heights = c(1,2),size = 10)
+  mxplot(p1,p2,heights = c(1,2),size = 10)
 
   #egg::ggarrange(plots = list(p1,p2),heights=NULL)
 
   plots = list(p2,p1)
-  rplot(plots = plots,heights = c(1,2))
+  mxplot(plots = plots,heights = c(1,2))
 
 
-  rplotList(list(p1,p2),theme=theme_textbook())
+  mxplotList(list(p1,p2),theme=theme_textbook())
   expect_class(p1,"gg")
 
-  a = rplot(p1,p2,p1,heights = c(2,1,1))
+  a = mxplot(p1,p2,p1,heights = c(2,1,1))
 
   vlines = c("2000-01-05","2000-01-13")
-  rplot(p1,p2,vlines = vlines)
+  mxplot(p1,p2,vlines = vlines)
   
 
   
