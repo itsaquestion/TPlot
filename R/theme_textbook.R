@@ -7,7 +7,7 @@
 #'
 theme_textbook = function(...){
 
-  theme_bw(...) + theme_bw() +
+  theme_bw(...) +
     theme(axis.line = element_line(colour = "black"),
           #panel.grid.major = element_blank(),
           #panel.grid.minor = element_blank()
