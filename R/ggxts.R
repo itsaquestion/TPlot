@@ -20,6 +20,8 @@
 ggxts = function(x, digits = 2,size = 0.8){
   assertClass(x,"xts")
 
+  index(x) = index(x) %>% as.character() %>% as.Date()
+  
   df = add_column(as_tibble(x),Index = index(x))
 
   # 加一列last_value，用于directlabels显示最新值
