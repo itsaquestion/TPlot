@@ -4,9 +4,16 @@
 \alias{mxplotList}
 \title{mxplotList}
 \usage{
-mxplotList(plots, use_one_x_axis = T, theme = theme_bw(),
-  titles = NULL, heights = NULL, end_spacing = 0.1, vlines = NULL,
-  vlines_color = "gray50")
+mxplotList(
+  plots,
+  use_one_x_axis = T,
+  theme = theme_bw(),
+  titles = NULL,
+  heights = NULL,
+  end_spacing = 0.1,
+  vlines = NULL,
+  vlines_color = "gray50"
+)
 }
 \description{
 mxplotList

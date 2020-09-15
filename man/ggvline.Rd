@@ -9,6 +9,9 @@ ggvline(x = 0, col = "gray50", ...)
 \arguments{
 \item{col}{}
 }
+\value{
+
+}
 \description{
 ggvline
 }

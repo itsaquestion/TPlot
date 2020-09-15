@@ -7,21 +7,53 @@
 \alias{mxplot.list}
 \title{mxplot}
 \usage{
-mxplot(..., use_one_x_axis = TRUE, theme = theme_bw(), titles = NULL,
-  heights = NULL, size = 0.8, end_spacing = 0.1, vlines = NULL,
-  vlines_color = "gray50")
+mxplot(
+  ...,
+  use_one_x_axis = TRUE,
+  theme = theme_bw(),
+  titles = NULL,
+  heights = NULL,
+  size = 0.8,
+  end_spacing = 0.1,
+  vlines = NULL,
+  vlines_color = "gray50"
+)
 
-\method{mxplot}{gg}(..., use_one_x_axis = TRUE, theme = theme_bw(),
-  titles = NULL, heights = NULL, size = 0.8, end_spacing = 0.1,
-  vlines = NULL, vlines_color = "gray50")
+\method{mxplot}{gg}(
+  ...,
+  use_one_x_axis = TRUE,
+  theme = theme_bw(),
+  titles = NULL,
+  heights = NULL,
+  size = 0.8,
+  end_spacing = 0.1,
+  vlines = NULL,
+  vlines_color = "gray50"
+)
 
-\method{mxplot}{xts}(..., use_one_x_axis = T, theme = theme_bw(),
-  titles = NULL, heights = NULL, size = 0.8, end_spacing = 0.1,
-  vlines = NULL, vlines_color = "gray50")
+\method{mxplot}{xts}(
+  ...,
+  use_one_x_axis = T,
+  theme = theme_bw(),
+  titles = NULL,
+  heights = NULL,
+  size = 0.8,
+  end_spacing = 0.1,
+  vlines = NULL,
+  vlines_color = "gray50"
+)
 
-\method{mxplot}{list}(..., use_one_x_axis = T, theme = theme_bw(),
-  titles = NULL, heights = NULL, size = 0.8, end_spacing = 0.1,
-  vlines = NULL, vlines_color = "gray50")
+\method{mxplot}{list}(
+  ...,
+  use_one_x_axis = T,
+  theme = theme_bw(),
+  titles = NULL,
+  heights = NULL,
+  size = 0.8,
+  end_spacing = 0.1,
+  vlines = NULL,
+  vlines_color = "gray50"
+)
 }
 \arguments{
 \item{...}{xts or ggplot objects, or a list of ggplot objects. If it's a list, only the 1st item works.}

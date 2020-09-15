@@ -9,6 +9,9 @@ gghist(x, bins = 30, density = F, color = "grey95", ...)
 \arguments{
 \item{color}{}
 }
+\value{
+
+}
 \description{
 gghist
 }

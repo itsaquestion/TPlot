@@ -3,6 +3,7 @@
 S3method(mxplot,gg)
 S3method(mxplot,list)
 S3method(mxplot,xts)
+S3method(print,xts)
 export(ggVector)
 export(gghist)
 export(gghline)
