@@ -42,9 +42,9 @@ test_that("multiplication works", {
   mxplot(p1,p2,vlines = vlines)
   
   
-  mxplotList(list(p1,p2),theme=theme_textbook(),xfrom = '2000-01-05')
-  mxplotList(list(p1,p2),theme=theme_textbook(),xto = '2000-01-05')
-  mxplotList(list(p1,p2),theme=theme_textbook(),xfrom = '2000-01-03', xto = '2000-01-07')
+  mxplot(p1,p2,theme=theme_textbook(),xfrom = '2000-01-05')
+  mxplot(p1,p2,theme=theme_textbook(),xto = '2000-01-05')
+  mxplot(p1,p2,theme=theme_textbook(),xfrom = '2000-01-03', xto = '2000-01-07')
   
 })
 

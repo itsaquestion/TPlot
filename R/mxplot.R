@@ -21,7 +21,7 @@
 #'
 mxplot = function(...,
                   use_one_x_axis = TRUE,
-                  theme = theme_bw(),
+                  theme = theme_textbook(),
                   titles = NULL,
                   heights = NULL,
                   size = 0.8,
@@ -57,7 +57,7 @@ mxplot.gg = function(...,
              heights = heights,
              end_spacing = end_spacing,
              vlines = vlines,
-             vlines_color=vlines_color)
+             vlines_color=vlines_color, xfrom=xfrom,xto=xto)
 }
 
 
@@ -89,7 +89,7 @@ mxplot.xts = function(...,
              heights = heights,
              end_spacing = end_spacing,
              vlines = vlines,
-             vlines_color=vlines_color)
+             vlines_color=vlines_color, xfrom=xfrom,xto=xto)
 }
 
 
@@ -119,7 +119,7 @@ mxplot.list = function(...,
              heights = heights,
              end_spacing = end_spacing,
              vlines = vlines,
-             vlines_color=vlines_color)
+             vlines_color=vlines_color, xfrom=xfrom,xto=xto)
 }
 
 
