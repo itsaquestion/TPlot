@@ -16,7 +16,9 @@ mxplot(
   size = 0.8,
   end_spacing = 0.1,
   vlines = NULL,
-  vlines_color = "gray50"
+  vlines_color = "gray50",
+  xfrom = NA,
+  xto = NA
 )
 
 \method{mxplot}{gg}(
@@ -28,7 +30,9 @@ mxplot(
   size = 0.8,
   end_spacing = 0.1,
   vlines = NULL,
-  vlines_color = "gray50"
+  vlines_color = "gray50",
+  xfrom = NA,
+  xto = NA
 )
 
 \method{mxplot}{xts}(
@@ -40,7 +44,9 @@ mxplot(
   size = 0.8,
   end_spacing = 0.1,
   vlines = NULL,
-  vlines_color = "gray50"
+  vlines_color = "gray50",
+  xfrom = NA,
+  xto = NA
 )
 
 \method{mxplot}{list}(
@@ -52,7 +58,9 @@ mxplot(
   size = 0.8,
   end_spacing = 0.1,
   vlines = NULL,
-  vlines_color = "gray50"
+  vlines_color = "gray50",
+  xfrom = NA,
+  xto = NA
 )
 }
 \arguments{
@@ -73,6 +81,10 @@ mxplot(
 \item{vlines}{add multiple geom_vline(). eg vlines = c("2000-01-05","2000-01-13").}
 
 \item{vlines_color}{color of vlines}
+
+\item{xfrom}{xfrom}
+
+\item{xto}{xto}
 }
 \value{
 an egg object.

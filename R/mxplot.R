@@ -3,6 +3,7 @@
 #' Plot multiple xts objects by row.
 #' Auto align the range of xlim of all plots.
 #' Show the latest value of xts objects.
+#'
 #' @param ... xts or ggplot objects, or a list of ggplot objects. If it's a list, only the 1st item works.
 #' @param use_one_x_axis if true then remove the x-axis of plots but the last
 #' @param theme the theme to apply
@@ -12,6 +13,8 @@
 #' @param end_spacing extend the space at the end of plot, as a percentage of the size of xlim().
 #' @param vlines add multiple geom_vline(). eg vlines = c("2000-01-05","2000-01-13").
 #' @param vlines_color color of vlines
+#' @param xfrom xfrom 
+#' @param xto xto
 #'
 #' @return an egg object.
 #' @export
@@ -24,7 +27,7 @@ mxplot = function(...,
                   size = 0.8,
                   end_spacing = 0.1,
                   vlines = NULL,
-                  vlines_color = "gray50") {
+                  vlines_color = "gray50", xfrom=NA, xto=NA) {
 
   UseMethod("mxplot")
 
@@ -42,7 +45,7 @@ mxplot.gg = function(...,
                      size = 0.8,
                      end_spacing = 0.1,
                      vlines = NULL,
-                     vlines_color = "gray50") {
+                     vlines_color = "gray50",xfrom=NA, xto=NA) {
 
   plots = list(...)
   assertList(plots,types = "gg")
@@ -71,7 +74,7 @@ mxplot.xts = function(...,
                       size = 0.8,
                       end_spacing = 0.1,
                       vlines = NULL,
-                      vlines_color = "gray50") {
+                      vlines_color = "gray50",xfrom=NA, xto=NA) {
 
   data = list(...)
 
@@ -103,7 +106,7 @@ mxplot.list = function(...,
                       size = 0.8,
                       end_spacing = 0.1,
                       vlines = NULL,
-                      vlines_color = "gray50") {
+                      vlines_color = "gray50",xfrom=NA, xto=NA) {
 
   plots = list(...)[[1]]
 
@@ -134,9 +137,10 @@ mxplotList = function(plots,
                       heights = NULL,
                       end_spacing = 0.1,
                       vlines = NULL,
-                      vlines_color = "gray50"){
+                      vlines_color = "gray50",xfrom=NA, xto=NA){
 
-
+  #plots = list(p1,p2)
+  
   assertList(plots,types = c("gg","ggplot"))
 
   if(testClass(theme, c("theme","gg"))){
@@ -159,10 +163,33 @@ mxplotList = function(plots,
     plots = map(plots, ~ . + geom_vline(xintercept = as.Date(vlines),col = vlines_color))
   }
 
+  
   plots = plots %>%
     removeLegendTitle %>%
     doAlign(end_spacing = end_spacing)
-
+  
+  
+  if(!is.na(xfrom) | !is.na(xto)){
+    xfrom = as.Date(xfrom)
+    xto = as.Date(xto)
+    
+    old_limits = plots[[1]]$coordinates$limits$x
+    
+    if(is.na(xto)){
+      xto = old_limits[2]
+    }
+    if(is.na(xfrom)){
+      xfrom = old_limits[1]
+    }
+    
+    plots = lapply(plots, function(x){
+      #print(x$coordinates$limits$x)
+      x$coordinates$limits$x = c(xfrom,xto)
+      #print(x$coordinates$limits$x)
+      x
+    })
+  }
+  
   ggarrange(plots = plots, heights = heights,ncol = 1)
 }
 

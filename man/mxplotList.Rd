@@ -12,7 +12,9 @@ mxplotList(
   heights = NULL,
   end_spacing = 0.1,
   vlines = NULL,
-  vlines_color = "gray50"
+  vlines_color = "gray50",
+  xfrom = NA,
+  xto = NA
 )
 }
 \description{
