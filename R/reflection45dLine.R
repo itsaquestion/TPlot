@@ -1,4 +1,15 @@
 
+#' makeReflectionLine
+#'
+#' get reflection line data
+#' @param fun a function 
+#' @param x_start_point x start point 
+#' @param steps how many steps 
+#'
+#' @return a data.frame of reflection line
+#' @export
+#'
+#' @examples
 makeReflectionLine = function(fun, x_start_point, steps = 10){
   assertFunction(fun)
   assertNumber(x_start_point)
