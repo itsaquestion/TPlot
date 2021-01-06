@@ -1,5 +1,8 @@
 
 makeReflectionLine = function(fun, x_start_point, steps = 10){
+  assertFunction(fun)
+  assertNumber(x_start_point)
+  assertNumber(steps,lower = 1)
   
   df = data.frame(x=double(),y=double())
   
@@ -59,10 +62,21 @@ makeArrows = function(df,n=4){
 #'
 #' @return ggplot object
 #' @export
+#' @import checkmate
+#' @import ggplot2
 #'
 #' @examples
 addReflectionPath = function(p,fun, x_start_point, steps = 10, col="red",
                              add_arrow = F,n_arrows = 5,arrow_size=0.3){
+  
+  assertClass(p,"gg")
+  assertFunction(fun)
+  assertNumber(x_start_point)
+  assertNumber(steps,lower = 1)
+  assertFlag(add_arrow)
+  assertNumber(n_arrows,lower = 1)
+  assertNumber(arrow_size,lower = 0)
+  
   
   path = makeReflectionLine(fun,x_start_point,steps)
   p = p + geom_path(data=path,aes(x=x,y=y),col=col)
