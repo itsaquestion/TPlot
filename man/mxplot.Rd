@@ -10,7 +10,7 @@
 mxplot(
   ...,
   use_one_x_axis = TRUE,
-  theme = theme_bw(),
+  theme = theme_textbook(),
   titles = NULL,
   heights = NULL,
   size = 0.8,
