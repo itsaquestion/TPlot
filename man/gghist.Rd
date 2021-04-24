@@ -7,6 +7,12 @@
 gghist(x, bins = 30, density = F, color = "grey95", ...)
 }
 \arguments{
+\item{x}{a vector}
+
+\item{bins}{bins}
+
+\item{density}{add density if TRUE}
+
 \item{color}{}
 }
 \value{

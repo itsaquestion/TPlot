@@ -5,7 +5,7 @@ test_that("multiplication works", {
 
   library(xts)
   library(checkmate)
-  library(purrr)
+  #library(purrr)
   library(ggplot2)
   library(directlabels)
   library(egg)

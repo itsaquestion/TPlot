@@ -6,8 +6,7 @@
 #' @param type "l" for line, "p" for points, "b" for boths
 #'
 #' @return a ggplot object
-#' @import reshape2
-#' @import tibble
+#' @import data.table
 #'
 #' @export
 #'
@@ -17,9 +16,8 @@ ggVector = function(x, type = "l") {
     p = ggplot(mapping = aes(x = seq_along(x), y = x)) + xlab("index") + ylab("x")
     
   } else if (is.data.frame(x)) {
-    df = add_column(index = 1:nrow(x), x)
     
-    df_m = reshape2::melt(df, "index")
+    df_m = melt(setDT(x)[,index:=1:nrow(x)],"index")
     
     p = ggplot(df_m, aes(x = index, y = value, group = variable, color = variable))
   }

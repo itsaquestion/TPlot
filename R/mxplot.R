@@ -80,7 +80,8 @@ mxplot.xts = function(...,
 
   assertList(data,types = "xts")
 
-  plots = map(data, ~ggxts(.,size = size))
+
+  plots = lapply(data, function(x){ ggxts(x,size = size) })
 
   mxplotList(plots,
              use_one_x_axis = use_one_x_axis,
@@ -126,7 +127,6 @@ mxplot.list = function(...,
 
 #' mxplotList
 #' @import egg
-#' @import purrr
 #' @import ggplot2
 #' @import checkmate
 #' @importFrom lubridate origin
@@ -160,7 +160,8 @@ mxplotList = function(plots,
   }
 
   if(!is.null(vlines)){
-    plots = map(plots, ~ . + geom_vline(xintercept = as.Date(vlines),col = vlines_color))
+    #plots = map(plots, ~ . + geom_vline(xintercept = as.Date(vlines),col = vlines_color))
+    plots = lapply(plots, function(x){x + geom_vline(xintercept = as.Date(vlines),col = vlines_color)})
   }
 
   
@@ -196,7 +197,8 @@ mxplotList = function(plots,
 
 
 applyTheme = function(plots,theme){
-  map(plots, ~ . + theme)
+  #map(plots, ~ . + theme)
+  lapply(plots, function(x) x + theme)
 }
 
 removeXAxisButLast = function(plots){
@@ -209,7 +211,7 @@ removeXAxisButLast = function(plots){
 }
 
 removeLegendTitle = function(plots){
-  map(plots, ~ . +  theme(legend.title = element_blank()))
+  lapply(plots,function(x) x + theme(legend.title = element_blank()))
 }
 
 
@@ -221,13 +223,15 @@ fixThemeMargin = function(the_theme){
 }
 
 #' doAlign
-#' @import purrr
 #' @param plots a list of ggplot objects
 #' @param end_spacing extend the space in the end, as a percentage of the size of xlim()
 #' @importFrom lubridate origin
 doAlign = function(plots, end_spacing = 0.1){
-  min_date =(map(plots, ~ min(.$data$Index))) %>% unlist %>% as.Date(origin=lubridate::origin) %>% min
-  max_date = (map(plots, ~ max(.$data$Index))) %>% unlist %>% as.Date(origin=lubridate::origin) %>% max
+  lapply(plots,function(x) min(x$data$index))
+  
+  
+  min_date = lapply(plots,function(x) min(x$data$index)) %>% unlist %>% as.Date(origin=lubridate::origin) %>% min
+  max_date = lapply(plots,function(x) max(x$data$index)) %>% unlist %>% as.Date(origin=lubridate::origin) %>% max
   diff = as.numeric((max_date - min_date))
   max_date = max_date + floor(diff * end_spacing)
 

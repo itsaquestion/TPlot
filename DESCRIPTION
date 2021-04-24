@@ -16,12 +16,10 @@ Suggests:
 RoxygenNote: 7.1.1
 Imports: checkmate,
   directlabels,
-  dplyr,
   egg,
   ggplot2,
   lubridate,
-  purrr,
-  reshape2,
-  tibble,
+  data.table,
+  magrittr,
   xts,
   zoo
