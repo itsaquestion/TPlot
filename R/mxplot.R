@@ -126,7 +126,7 @@ mxplot.list = function(...,
 
 
 #' mxplotList
-#' @import egg
+#' @importFrom  ggpubr ggarrange
 #' @import ggplot2
 #' @import checkmate
 #' @importFrom lubridate origin
@@ -191,7 +191,7 @@ mxplotList = function(plots,
     })
   }
   
-  ggarrange(plots = plots, heights = heights,ncol = 1)
+  ggarrange(plotlist = plots,ncol = 1,align = "v")
 }
 
 

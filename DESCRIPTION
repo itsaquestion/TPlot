@@ -1,9 +1,9 @@
 Package: TPlot
 Title: What the Package Does (One Line, Title Case)
-Version: 1.4
+Version: 1.4.1
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Weicheng",
+           family = "Li",
            role = c("aut", "cre"),
            email = "first.last@example.com",
            comment = c(ORCID = "YOUR-ORCID-ID"))
@@ -16,7 +16,7 @@ Suggests:
 RoxygenNote: 7.1.1
 Imports: checkmate,
   directlabels,
-  egg,
+  ggpubr,
   ggplot2,
   lubridate,
   data.table,

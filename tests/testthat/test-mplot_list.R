@@ -8,7 +8,7 @@ test_that("multiplication works", {
   #library(purrr)
   library(ggplot2)
   library(directlabels)
-  library(egg)
+  library(ggpubr)
 
   date_1 = seq(as.Date("2000-01-01"),as.Date("2000-01-10"),"days")
 
