@@ -1,6 +1,6 @@
 Package: TPlot
 Title: What the Package Does (One Line, Title Case)
-Version: 1.4.1
+Version: 1.4.2
 Authors@R: 
     person(given = "Weicheng",
            family = "Li",
