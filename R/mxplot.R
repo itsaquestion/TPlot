@@ -164,12 +164,6 @@ mxplotList = function(plots,
     plots = lapply(plots, function(x){x + geom_vline(xintercept = as.Date(vlines),col = vlines_color)})
   }
 
-  
-  plots = plots %>%
-    removeLegendTitle %>%
-    doAlign(end_spacing = end_spacing)
-  
-  
   if(!is.na(xfrom) | !is.na(xto)){
     xfrom = as.Date(xfrom)
     xto = as.Date(xto)
@@ -187,9 +181,18 @@ mxplotList = function(plots,
       #print(x$coordinates$limits$x)
       x$coordinates$limits$x = c(xfrom,xto)
       #print(x$coordinates$limits$x)
-      x
-    })
+      
+      tmp_data = x$data[index >= xfrom][index <= xto]
+      
+      x$data = tmp_data
+      
+      x + ylim(min(tmp_data[,"value"]),max(tmp_data[,"value"]))
+    }) 
   }
+  
+  plots = plots %>%
+    removeLegendTitle %>%
+    doAlign(end_spacing = end_spacing)
   
   ggarrange(plotlist = plots,ncol = 1,align = "v")
 }
