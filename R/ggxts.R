@@ -9,8 +9,6 @@
 #' @import data.table
 #' @importFrom magrittr `%>%`
 #' @import directlabels
-#' @import xts
-#' @import zoo
 #'
 #' @return ggplot object
 #' @export
